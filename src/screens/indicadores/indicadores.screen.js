@@ -21,7 +21,7 @@ const IndicadoresScreen = ({
       try {
         await getIndicadores();
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     })();
   }, []);

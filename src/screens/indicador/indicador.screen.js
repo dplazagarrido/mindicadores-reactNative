@@ -11,9 +11,8 @@ const IndicadorScreen = ({navigation, codigo, nombre, unidadMedida}) => {
       try {
         navigation.setOptions({title: nombre});
         await getIndicador(codigo);
-        console.log({unidadMedida});
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     })();
   }, []);
@@ -26,7 +25,6 @@ const IndicadorScreen = ({navigation, codigo, nombre, unidadMedida}) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log('state', state);
   return {
     codigo: state.IndicadorReducer.codigo,
     nombre: state.IndicadorReducer.nombre,

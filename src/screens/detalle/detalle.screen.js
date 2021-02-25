@@ -17,7 +17,7 @@ const DetalleScreen = ({navigation, codigo, nombre, unidadMedida}) => {
         navigation.setOptions({title: nombre});
         await getIndicador(codigo);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     })();
   }, []);
@@ -29,7 +29,6 @@ const DetalleScreen = ({navigation, codigo, nombre, unidadMedida}) => {
     const tempData = response.data.serie.slice(0, 10);
     let resultY = tempData.map((a) => a.valor);
     let resultX = tempData.map((a) => Moment(a.fecha).format('YYYY-MM-DD'));
-    console.log(resultX);
     setValoresGraficosEjeY(resultY);
     setValoresGraficosEjeX(resultX);
   };
@@ -46,7 +45,6 @@ const DetalleScreen = ({navigation, codigo, nombre, unidadMedida}) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log('state', state);
   return {
     codigo: state.IndicadorReducer.codigo,
     nombre: state.IndicadorReducer.nombre,
