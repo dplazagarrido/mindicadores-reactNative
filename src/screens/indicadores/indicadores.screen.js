@@ -1,8 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import IndicadoresLayout from './indicadores.layout';
 import indicadoresServices from '../../services/indicadoresServices';
+import {connect} from 'react-redux';
+import {setCodigo, setNombre} from '../../reducers/indicador.reducer';
 
-const IndicadoresScreen = ({navigation}) => {
+const IndicadoresScreen = ({
+  navigation,
+  setCodigoIndicadorSeleccionado,
+  setNombreIndicadorSeleccionado,
+}) => {
   const [indicadores, setIndicadores] = useState([]);
 
   useEffect(() => {
@@ -15,8 +21,14 @@ const IndicadoresScreen = ({navigation}) => {
     })();
   }, []);
 
-  const goToIndicador = (codigoIndicador) => {
-    navigation.navigate('Details', {codigoIndicador});
+  const goToIndicador = (codigoIndicador, nombreIndicador) => {
+    setCodigoIndicadorSeleccionado(codigoIndicador, {codigoIndicador});
+    setNombreIndicadorSeleccionado(nombreIndicador, {nombreIndicador});
+    navigation.navigate('Details');
+  };
+
+  const goToDetails = () => {
+    console.log('asdasd');
   };
 
   const getIndicadores = async () => {
@@ -31,8 +43,14 @@ const IndicadoresScreen = ({navigation}) => {
     <IndicadoresLayout
       indicadores={indicadores}
       goToIndicador={goToIndicador}
+      goToDetails={goToDetails}
     />
   );
 };
 
-export default IndicadoresScreen;
+const mapDispatchToProps = (dispatch) => ({
+  setCodigoIndicadorSeleccionado: (codigo) => dispatch(setCodigo(codigo)),
+  setNombreIndicadorSeleccionado: (nombre) => dispatch(setNombre(nombre)),
+});
+
+export default connect(null, mapDispatchToProps)(IndicadoresScreen);
