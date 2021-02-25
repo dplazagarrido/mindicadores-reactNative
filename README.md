@@ -7,7 +7,7 @@
 
 > React Native
 
-Descripción del proyecto : Proyecto app móvil desarrollado en React Native. Permite consultar el valor de diferentes indicadores economicos.
+Descripción del proyecto : Proyecto app móvil desarrollado en React Native. Permite consultar el valor de diferentes indicadores económicos.
 En el desarrollo del proyecto se utilizo la API de [mindicador.cl](https://mindicador.cl/)
 
 ## Comenzando
