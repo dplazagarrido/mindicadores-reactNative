@@ -10,6 +10,8 @@ target 'Test3it' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
   target 'Test3itTests' do
     inherit! :complete
     # Pods for testing
