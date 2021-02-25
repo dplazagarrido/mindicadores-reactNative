@@ -4,6 +4,9 @@ import * as React from 'react';
 import {Button, View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import IndicadoresScreen from './src/screens/indicadores/indicadores.screen';
+import IndicadorScreen from './src/screens/indicador/indicador.screen';
+import {Root} from 'native-base';
 
 function HomeScreen({navigation}) {
   return (
@@ -28,12 +31,14 @@ const Stack = createStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Indicadores" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Root>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Indicadores" component={IndicadoresScreen} />
+          <Stack.Screen name="Details" component={IndicadorScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Root>
   );
 }
 
